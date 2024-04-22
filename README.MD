@@ -14,7 +14,7 @@ The strip functions in ws2812.c:
 while(!strip_tx(&myStrip)) ;
 ```
 
-`ws2812_init` This setup and initialise a strip. It is called from strip_init.
+* `ws2812_init` This setup and initialise a strip. It is called from strip_init.
 
 The functions main.c:
 
