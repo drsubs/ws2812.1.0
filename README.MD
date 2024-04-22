@@ -3,6 +3,7 @@
 This project is to demonstrate how to use multi PIO programs on RP2040. I use a Adafruit NeoPixel ring https://www.adafruit.com/product/1463 .
 The PIO code is from the examples in the pico sdk and the initialise code is also from the examples, exept the allocated state machine is returned.
 Notis, the CMakeLists.txt, I used a pico-w, if you have a pico, change that in CMakeLists.txt (Line 3).
+
 The strip functions in ws2812.c:
 
 * `strip_init` Fill's the structure strip with it's reset state data, load the PIO program and allocate a state machine.
@@ -12,4 +13,13 @@ The strip functions in ws2812.c:
 ```
 while(!strip_tx(&myStrip)) ;
 ```
+
+`ws2812_init` This setup and initialise a strip. It is called from strip_init.
+
+The functions main.c:
+
+* `strips_tx` Transmit all strip in an array of strips.
+* `strips_reset` Reset all strip in an array of strips.
+* `tx_pump` The transmittion pump. 
+
 

@@ -160,8 +160,7 @@ int64_t tx_pump(alarm_id_t id, void *user_data)
  * @return int Never gona happend.
  */
 int main()
-{
-    
+{    
     PIO pio_0 = pio0; // values: pio0, pio1
     PIO pio_1 = pio1; 
     const uint WS2812_PIN1 = 16;
