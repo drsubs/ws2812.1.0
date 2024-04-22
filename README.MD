@@ -6,3 +6,10 @@ Notis, the CMakeLists.txt, I used a pico-w, if you have a pico, change that in C
 The strip functions in ws2812.c:
 
 * `strip_init` Fill's the structure strip with it's reset state data, load the PIO program and allocate a state machine.
+* `strip_reset` Resets the strip after transmition. This must be done after every transmit.
+* `strip_tx` Strip transmit. It must be called in a loop until it returns true. If you use it as a single transmit use this code:
+
+```
+while(!strip_tx(&myStrip)) ;
+```
+
