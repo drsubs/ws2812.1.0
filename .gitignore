@@ -1,0 +1,5 @@
+build/.ninja_deps
+build/.ninja_log
+build/pio_ws2812.elf
+build/pio_ws2812.elf.map
+doxy/doxygen_crawl.html

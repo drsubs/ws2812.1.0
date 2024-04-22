@@ -80,3 +80,5 @@
 4201	5277	7354467567518582	CMakeFiles/pio_ws2812.dir/C_/Program_Files/Raspberry_Pi/Pico_SDK_v1.5.0/pico-sdk/lib/tinyusb/src/tusb.c.obj	7d8c0a7a21f30984
 4281	5424	7354467569037234	CMakeFiles/pio_ws2812.dir/C_/Program_Files/Raspberry_Pi/Pico_SDK_v1.5.0/pico-sdk/lib/tinyusb/src/common/tusb_fifo.c.obj	420076a2d77e7270
 5424	6083	7354467572833383	pio_ws2812.elf	8d4da2c7415844ff
+15	268	7354862863067899	CMakeFiles/pio_ws2812.dir/main.c.obj	76de1d3aed2108c6
+269	637	7354862865558619	pio_ws2812.elf	8d4da2c7415844ff
