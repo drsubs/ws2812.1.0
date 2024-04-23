@@ -6,6 +6,11 @@
  * @date 2024-04-23
  * 
  * @copyright Copyright (c) 2024
+ *
+ * This source code is licensed under the MIT-style license found in the
+ * LICENSE file in the root directory of this source tree.
+ *
+ * -------------------------------------------------------------------------------
  * 
  */
 #include <stdlib.h>
@@ -31,7 +36,6 @@ static int idx2=0;
 float deg2rad(float x) {
   return (x*pi)/8.0;
 }
-#define value 4.0
 
 /**
  * @brief Generate a random pattern.
@@ -76,6 +80,9 @@ void tivoli(strip *s) {
         p[i+3]=color4;
     }
 }
+
+#define value 4.0
+
 /**
  * @brief Generate a rainbow pattern CW.
  * 

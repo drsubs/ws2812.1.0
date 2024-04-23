@@ -13,9 +13,6 @@ extern "C" {
  * @brief The number of led strips.
  * 
  */
-#define NUM_STRIPS 8
-
-#define pi 3.1415926535897931
 
 typedef struct rgb { 
     uint8_t r;

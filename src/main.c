@@ -9,7 +9,7 @@
  *
  * -------------------------------------------------------------------------------
  *
- *  Library to control the led rgb WS2812
+ *  Library to control the led rgb in WS2812 strips.
  *  Useing multiply PIO programs.
  *  
  *
