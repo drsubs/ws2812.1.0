@@ -16,10 +16,12 @@ while(!strip_tx(&myStrip)) ;
 
 * `ws2812_init` This setup and initialise a strip. It is called from strip_init.
 
-The functions main.c:
+The functions in main.c:
 
 * `strips_tx` Transmit all strip in an array of strips.
 * `strips_reset` Reset all strip in an array of strips.
 * `tx_pump` The transmittion pump. 
 
+The functions in patterns.c is to create an output. 
 
+The code is commented in doxy style and there is a doxyfile, too create a doxygen doc. 

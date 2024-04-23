@@ -40,9 +40,7 @@ float deg2rad(float x) {
 /**
  * @brief Generate a random pattern.
  * 
- * @param p Pattern
- * @param len Length of pattern.
- * @param scl Scale result.
+ * @param s Strip
  */
 void rand_ptrn(strip *s) {
     int scl=16;
@@ -60,10 +58,9 @@ rgb_t color3={0,4,16};
 rgb_t color4={8,0,16};
 
 /**
- * @brief 
+ * @brief A Tivoli light strip.
  * 
- * @param p 
- * @param len 
+ * @param s Strip.
  */
 void tivoli(strip *s) {
     rgb_t *p=s->ptrn;
@@ -86,6 +83,8 @@ void tivoli(strip *s) {
 /**
  * @brief Generate a rainbow pattern CW.
  * 
+ * @param s strip.
+ * 
  */
 void sinusbue(strip *s) {
     
@@ -106,6 +105,8 @@ void sinusbue(strip *s) {
 }
 /**
  * @brief Generate a rainbow CCW.
+ * 
+ * @param s Strip.
  * 
  */
 void sinusbue_r(strip *s) {

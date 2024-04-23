@@ -68,12 +68,6 @@ void strips_reset(strip *ss) {
  */
 int64_t tx_pump(alarm_id_t id, void *user_data)
 {    
-/*    sinusbue();
-    sinusbue_r();
-    rand_ptrn(ptrn3,16,4);
-    tivoli(ptrn3,16);
-    rand_ptrn(ptrn4,16,32);
-*/
     generate_patterns(strips);
     strips_tx(strips);
     strips_reset(strips);
