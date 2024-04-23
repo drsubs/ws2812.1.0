@@ -13,7 +13,9 @@ pico_sdk_init()
 add_executable(${PROJECT_NAME} 
     main.c
     ws2812.c
+    patterns.c
 )
+
 
 pico_generate_pio_header(${PROJECT_NAME} ${CMAKE_CURRENT_LIST_DIR}/ws2812.pio)
 

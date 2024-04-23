@@ -21,27 +21,14 @@
 #include <math.h>
 #include "pico/stdlib.h"
 #include "ws2812.h"
+#include "patterns.h"
 
-/**
- * @brief The number of led strips.
- * 
- */
-#define NUM_STRIPS 8
-
-#define pi 3.1415926535897931
 
 /**
  * @brief Hold the strips (see ws2812 for definition).
  * 
  */
 strip strips[NUM_STRIPS];
-
-/**
- * @brief both idx and idx2 is used to make the rainbow rotate.
- * 
- */
-static int idx=0;
-static int idx2=0;
 
 /// @brief Pattern buffers
 rgb_t ptrn[16];
@@ -73,69 +60,6 @@ void strips_reset(strip *ss) {
 }
 
 /**
- * @brief Fake deg2rad with 16 degree circle. There is 16 leds in Adafruit NeoPixel ring.
- * 
- * @param x Degree in 16 degree circle.
- * @return float Return degree in radian. 
- */
-
-float deg2rad(float x) {
-  return (x*pi)/8.0;
-}
-#define value 4.0
-
-/**
- * @brief Generate a random pattern.
- * 
- * @param p Pattern
- * @param len Length of pattern.
- * @param scl Scale result.
- */
-void rand_ptrn(rgb_t *p,int len,int scl) {
-  for(int i=0;i < len;i++) {
-    p[i].r=(rand() & 0xff)/scl;
-    p[i].g=(rand() & 0xff)/scl;
-    p[i].b=(rand() & 0xff)/scl;
-  }
-}
-
-/**
- * @brief Generate a rainbow pattern CW.
- * 
- */
-void sinusbue() {
-  for(int i=0;i<16;i++) {
-    int ii=i+(idx); // Rotate CW.
-    float r=1+sin(deg2rad((double)ii));
-    float g=1+sin(deg2rad(5.3333+(double)ii)); // Plus 120 deg.
-    float b=1+sin(deg2rad(10.6666+(double)ii)); // Plus 240 deg.
-
-    ptrn[i].r=(int8_t) (r*value);
-    ptrn[i].g=(int8_t) (g*value);
-    ptrn[i].b=(int8_t) (b*value);
-  }
-  if(idx++>=15) idx=0;
-}
-/**
- * @brief Generate a rainbow CCW.
- * 
- */
-void sinusbue_r() {
-  for(int i=0;i<16;i++) {
-    int ii=i-(idx2); // Rotate CCW.
-
-    float r=1.0+sin(deg2rad((double)ii));
-    float g=1.0+sin(deg2rad(5.3333+(double)ii)); // Plus 120 deg.
-    float b=1.0+sin(deg2rad(10.6666+(double)ii)); // Plus 240 deg.
-
-    ptrn2[i].r=(int8_t) (r*value);
-    ptrn2[i].g=(int8_t) (g*value);
-    ptrn2[i].b=(int8_t) (b*value);
-  }
-  if(idx2++>=15) idx2=0;
-}
-
-/**
  * @brief Do the generate patterns and output them.
  * @details We only have 4 pattern buffers, the last 4 out re-use the first 4.
  * @param id Not used.
@@ -143,15 +67,17 @@ void sinusbue_r() {
  * @return int64_t Return the time to next pump call in µS.
  */
 int64_t tx_pump(alarm_id_t id, void *user_data)
-{
-    sinusbue();
+{    
+/*    sinusbue();
     sinusbue_r();
     rand_ptrn(ptrn3,16,4);
+    tivoli(ptrn3,16);
     rand_ptrn(ptrn4,16,32);
-
+*/
+    generate_patterns(strips);
     strips_tx(strips);
     strips_reset(strips);
-    return 25 * 1000;
+    return 250 * 1000;
 }
 
 /**

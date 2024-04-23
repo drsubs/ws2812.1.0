@@ -1,3 +1,14 @@
+/**
+ * @file ws2812.c
+ * @author Bo Boye
+ * @brief Hardware interface for ws2812 led strips, using PIO.
+ * @version 1.0
+ * @date 2024-04-23
+ * 
+ * @copyright Copyright (c) 2024
+ * 
+ */
+
 #include "ws2812.h"
 
 /**
